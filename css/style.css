@@ -1,0 +1,38 @@
+
+
+#navbar{
+    background-color: rgb(0,135,180);
+}
+#nav{
+    color: white;
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-display:initial;
+    font-size: 1.5rem;
+}
+
+#title{
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+#ctask {
+    margin: 20px;
+    font-size: larger;
+    font-family:'Times New Roman', Times, serif
+}
+
+.card{
+    background-color:rgb(186, 224, 240);
+    border-color: rgb(1, 36, 49);
+    font-size: large;
+    border-width: 2px;
+}
+
+#taskform{
+    background-color: rgb(158,191,240);
+    border-color: midnightblue;
+    font-family: serif;
+    font-size: 18px;
+   }
