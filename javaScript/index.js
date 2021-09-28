@@ -143,7 +143,8 @@ if (event.target.classList.contains("done-button")){
 
   // // Update the task status to 'DONE'
   task.status = "Done";
-  taskManager.render();
+  taskManager.save();
+  
   // document.querySelector("#done-btn").style.display="none";
 // console.log(parentTask);
   // Render the tasks
