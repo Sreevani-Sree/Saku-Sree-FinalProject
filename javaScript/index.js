@@ -1,5 +1,9 @@
 
 const taskManager = new TaskManager(0);
+
+  taskManager.load();
+  taskManager.render();
+
  let  resetForm = document.querySelector("#reset-form");
   let validateName = document.getElementById('title');
   let validateDescription = document.querySelector("#description");
@@ -7,18 +11,33 @@ const taskManager = new TaskManager(0);
   let validateStatus = document.querySelector("#status");
   let validateDueDate = document.querySelector("#dueDate");
 
-let btnSub2 = document.querySelector("#submit");
+let btnSub2 = document.querySelector("#submit"); 
+let ctask = document.querySelector("#ctask");
 
 let errMsg1 = document.querySelector("#errMsg1");
 let errMsg2 = document.querySelector("#errMsg2");
 let errMsg3 = document.querySelector("#errMsg3");
 let errMsg4 = document.querySelector("#errMsg4");
 let errMsg5 = document.querySelector("#errMsg5");
-btnSub2.addEventListener("click", validateBox);
+
+//  date format
+  var today = new Date().toISOString().split('T')[0];
+  console.log("today" + today);
+ validateDueDate.setAttribute('min', today);
+ 
+// document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
+ btnSub2.addEventListener("click", validateBox);
+ctask.addEventListener("click",resetFormInput);
 //function for reset the form
 
  function resetFormInput(){
    resetForm.reset();
+   errMsg1.innerHTML = "";
+   errMsg2.innerHTML = "";
+   errMsg3.innerHTML = "";
+   errMsg4.innerHTML = "";
+   errMsg5.innerHTML = "";
+
  }
 // function for validating all the form fields
 function validateBox() {
@@ -91,6 +110,7 @@ console.log(validateStatus.value);
     } else {
     taskManager.addTask(validateName.value,validateDescription.value,validateAssignedTo.value,validateStatus.value,validateDueDate.value);
     console.log(taskManager.tasks)
+    taskManager.save();
     taskManager.render();
   }
   return;
@@ -123,12 +143,22 @@ if (event.target.classList.contains("done-button")){
 
   // // Update the task status to 'DONE'
   task.status = "Done";
-  document.querySelector("#done-btn").style.display="none";
+  taskManager.render();
+  // document.querySelector("#done-btn").style.display="none";
 // console.log(parentTask);
   // Render the tasks
   taskManager.render();
-  
-}
 
+  // document.querySelector("#done-btn").style.display="none";
+}
+  // Delete button
+  if(event.target.classList.contains('delete-button')) {
+    const parentTask = 
+    event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.dataset.taskId);
+    taskManager.deleteTask(taskId);
+    taskManager.save();
+    taskManager.render();
+    }
 });
 
