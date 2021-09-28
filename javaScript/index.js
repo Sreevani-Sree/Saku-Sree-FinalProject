@@ -84,6 +84,7 @@ console.log(validateStatus.value);
       errMsg5.innerHTML = "";
       validateDueDate.focus();
     }
+
     if (valFail >0) {
       valFail=0;
       return;
@@ -122,9 +123,11 @@ if (event.target.classList.contains("done-button")){
 
   // // Update the task status to 'DONE'
   task.status = "Done";
+  document.querySelector("#done-btn").style.display="none";
 // console.log(parentTask);
   // Render the tasks
   taskManager.render();
+  
 }
 
 });
