@@ -83,7 +83,7 @@ class TaskManager {
 // create html function
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
-      const html = `<div class="col-auto">
+      const html = `<div class="col-auto" data-task-id="${id}"      >
                <div class="p-2 bd-highlight">
                <div class="card" style="width: 20rem;">
                <div class="card-body">
@@ -93,9 +93,9 @@ class TaskManager {
                <p class="card-text">Status: ${status}</p>
                <p class="card-text">Due Date: ${dueDate}</p>
           <div class="card-body">
-            <button class="btn btn-outline-success done-button">Done</button>
-            <img src="./images/editicon.jpeg" alt="" width="30" height="24">
-            <img src="./images/deleteicon.jpeg" alt="" width="30" height="24">
+          <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button">
+          
+          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24">
           </div>
        </div>
     </div>
@@ -103,3 +103,5 @@ class TaskManager {
     </div>`
   return html;
   }
+
+  // btn btn-outline-success 
