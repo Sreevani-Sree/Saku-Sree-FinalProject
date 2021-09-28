@@ -83,7 +83,7 @@ class TaskManager {
 // create html function
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
-      const html = `<div class="col-auto" data-task-id="${id}"      >
+      const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
                <div class="card" style="width: 20rem;">
                <div class="card-body">
