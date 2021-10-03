@@ -24,6 +24,7 @@ let errMsg5 = document.querySelector("#errMsg5");
 // document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
  btnSub2.addEventListener("click", validateBox);
 ctask.addEventListener("click",resetFormInput);
+// let donehide = document.querySelector("#done-btn");
 //function for reset the form
 
  function resetFormInput(){
@@ -115,9 +116,6 @@ console.log(validateStatus.value);
 // Create a taskHtml variable with the result of calling the createTaskHtml function, making sure to pass a value for each parameter.
 // console.log() the taskHTML variable
 
-// let taskHtml = createTaskHtml("cleaning","cleaning and moping","srees","todo","29/09/2021");
-// console.log(taskHtml);
-  // Adding Tasklist Step 8
 
   const taskList = document.querySelector("#task-list");
   // Add an 'onclick' event listener to the Tasks List
@@ -137,12 +135,21 @@ if (event.target.classList.contains("done-button")){
 
   // // Update the task status to 'DONE'
   task.status = "Done";
+  // document.querySelector("#done-btn").classList.add("myStyle");
 // console.log(parentTask);
   // Render the tasks
-  taskManager.render();
-  document.querySelector("#done-btn").style.display="none";
-
+   taskManager.render();
+  //  donehide.addEventListener(click,displayhide);
+  //  document.querySelector("#done-btn").style.display="none";
 }
+// let done_btn =document.querySelector("#done-btn");
+// done_btn.onclick = "style.display = none";
+
 
 });
+
+// donehide.addEventListener(click,displayhide);
+// function displayhide(){
+// donehide.style.display="none";
+// }
 

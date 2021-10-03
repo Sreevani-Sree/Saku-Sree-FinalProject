@@ -76,6 +76,7 @@ class TaskManager {
     // Set the inner html of the tasksList on the page
     const tasksList = document.querySelector("#task-list");
     tasksList.innerHTML = tasksHtml;
+    
   }
   }
   }

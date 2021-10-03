@@ -22,6 +22,10 @@
     font-size: larger;
     font-family:'Times New Roman', Times, serif
 }
+.myStyle{
+    display:none;
+
+}
 
 .card{
     background-color:rgb(186, 224, 240);
