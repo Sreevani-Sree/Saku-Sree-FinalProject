@@ -5,7 +5,7 @@ class TaskManager {
       this.currentId = currentId;
     }
   //  get tasks(){
-  //  return this._tasks;
+  //  return this.tasks;
   //   }
   //   // Create the addTask method
     addTask(title,description,assignedTo,status,dueDate) {
@@ -24,8 +24,7 @@ class TaskManager {
       this.tasks.push(task);
       document.getElementById("reset-form").reset();
       alert("The Task is added");
-      
-      
+            
     }
     // get task method
     getTaskById(taskId) {
@@ -68,17 +67,53 @@ class TaskManager {
       );
       // Push it to the tasksHtmlList array
       taskHtmlList.push(taskHtml);
-    
+    }
     // Create the tasksHtml by joining each item in the tasksHtmlList
     // with a new line in between each item.
     const tasksHtml = taskHtmlList.join("\n");
-
+  
     // Set the inner html of the tasksList on the page
     const tasksList = document.querySelector("#task-list");
     tasksList.innerHTML = tasksHtml;
     
   }
+  // Task 9 saving to local drive
+  save() {
+    // Create a JSON string of the tasks
+    const tasksJson = JSON.stringify(this.tasks);
+
+    // Store the JSON string in localStorage
+    localStorage.setItem("tasks", tasksJson);
+
+    // Convert the currentId to a string;
+    const currentId = String(this.currentId);
+
+    // Store the currentId in localStorage
+    localStorage.setItem("currentId", currentId);
   }
+
+  load() {
+    if(localStorage.getItem('tasks')) {
+      const tasksJson = localStorage.getItem('tasks');
+      this.tasks = JSON.parse(tasksJson);
+    }
+    if(localStorage.getItem('currentId')) {
+      const currentId = localStorage.getItem('currentId');
+      this.currentId = Number(currentId);
+    }
+  }
+
+    //task 10
+    deleteTask(taskId) {
+      const newTasks = [];
+      for(let i = 0; i < this.tasks.length; i++) {
+        const task = this.tasks[i];
+        if(task.id !== taskId) {
+          newTasks.push(task);
+        }
+      }
+      this.tasks = newTasks;
+    }
   }
   
 // create html function
@@ -86,17 +121,17 @@ class TaskManager {
     // copying Hardcoded card from Index.html
       const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
-               <div class="card" style="width: 20rem;">
+               <div class="card" style="width: 16rem;">
                <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
                <p class="card-text">Status: ${status}</p>
                <p class="card-text">Due Date: ${dueDate}</p>
-          <div class="card-body">
-          <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button">
+          <div class="card-body text-center">
+          <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
           
-          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24">
+          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" class="delete-button">
           </div>
        </div>
     </div>

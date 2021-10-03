@@ -1,5 +1,9 @@
 
 const taskManager = new TaskManager(0);
+
+  taskManager.load();
+  taskManager.render();
+
  let  resetForm = document.querySelector("#reset-form");
   let validateName = document.getElementById('title');
   let validateDescription = document.querySelector("#description");
@@ -16,7 +20,7 @@ let errMsg3 = document.querySelector("#errMsg3");
 let errMsg4 = document.querySelector("#errMsg4");
 let errMsg5 = document.querySelector("#errMsg5");
 
- 
+//  date format
   var today = new Date().toISOString().split('T')[0];
   console.log("today" + today);
  validateDueDate.setAttribute('min', today);
@@ -100,12 +104,14 @@ console.log(validateStatus.value);
       errMsg5.innerHTML = "";
       validateDueDate.focus();
     }
+
     if (valFail >0) {
       valFail=0;
       return;
     } else {
     taskManager.addTask(validateName.value,validateDescription.value,validateAssignedTo.value,validateStatus.value,validateDueDate.value);
     console.log(taskManager.tasks)
+    taskManager.save();
     taskManager.render();
   }
   return;
@@ -135,17 +141,24 @@ if (event.target.classList.contains("done-button")){
 
   // // Update the task status to 'DONE'
   task.status = "Done";
-  // document.querySelector("#done-btn").classList.add("myStyle");
+  taskManager.save();
+  
+  // document.querySelector("#done-btn").style.display="none";
 // console.log(parentTask);
   // Render the tasks
-   taskManager.render();
-  //  donehide.addEventListener(click,displayhide);
-  //  document.querySelector("#done-btn").style.display="none";
+  taskManager.render();
+
+  // document.querySelector("#done-btn").style.display="none";
 }
-// let done_btn =document.querySelector("#done-btn");
-// done_btn.onclick = "style.display = none";
-
-
+  // Delete button
+  if(event.target.classList.contains('delete-button')) {
+    const parentTask = 
+    event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.dataset.taskId);
+    taskManager.deleteTask(taskId);
+    taskManager.save();
+    taskManager.render();
+    }
 });
 
 // donehide.addEventListener(click,displayhide);
