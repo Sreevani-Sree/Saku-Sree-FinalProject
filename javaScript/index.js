@@ -22,8 +22,9 @@ let errMsg5 = document.querySelector("#errMsg5");
 
 //  date format
   var today = new Date().toISOString().split('T')[0];
-  console.log("today" + today);
- validateDueDate.setAttribute('min', today);
+  // var today = new Date();
+ console.log("today" + today);
+validateDueDate.setAttribute('min', today);
  
 // document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
  btnSub2.addEventListener("click", validateBox);

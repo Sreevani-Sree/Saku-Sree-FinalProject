@@ -65,6 +65,7 @@ class TaskManager {
         formattedDate,
         
       );
+      
       // Push it to the tasksHtmlList array
       taskHtmlList.push(taskHtml);
     }
@@ -119,6 +120,10 @@ class TaskManager {
 // create html function
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
+    
+    let todayDate = new Date();
+    let formatDate = (todayDate.getDate() +  "/" +(todayDate.getMonth()+1 )+ "/" + todayDate.getFullYear());
+    
       const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
                <div class="card" style="width: 16rem;">
@@ -126,8 +131,9 @@ class TaskManager {
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-               <p class="card-text">Status: ${status}</p>
+              <p class="card-text">Status:<span class="${(dueDate < formatDate && status !== "Done") ? "text-danger" : "text-success"} " > ${status}</span></p>
                <p class="card-text">Due Date: ${dueDate}</p>
+               <p class="card-text">Today Date: ${formatDate}</p>
           <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
           
