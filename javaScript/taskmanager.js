@@ -131,10 +131,9 @@ class TaskManager {
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-warning" : "text-danger"} " > ${status}</span></p>
+              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-warning" :status === "Review" ? "text-info" : "text-danger" } " > ${status}</span></p>
                <p class="card-text">Due Date: ${dueDate}</p>
-               <p class="card-text">Today Date: ${formatDate}</p>
-          <div class="card-body text-center">
+               <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
           
           <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" class="delete-button">
