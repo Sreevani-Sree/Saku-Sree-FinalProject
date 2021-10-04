@@ -131,7 +131,7 @@ class TaskManager {
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-danger" : "text-info"} " > ${status}</span></p>
+              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-warning" : "text-danger"} " > ${status}</span></p>
                <p class="card-text">Due Date: ${dueDate}</p>
                <p class="card-text">Today Date: ${formatDate}</p>
           <div class="card-body text-center">
