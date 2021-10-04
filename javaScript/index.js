@@ -22,14 +22,13 @@ let errMsg5 = document.querySelector("#errMsg5");
 
 //  date format
   var today = new Date().toISOString().split('T')[0];
-  // var today = new Date();
- console.log("today" + today);
+   var today = new Date();
+ //console.log("today" + today);
 validateDueDate.setAttribute('min', today);
  
 // document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
  btnSub2.addEventListener("click", validateBox);
 ctask.addEventListener("click",resetFormInput);
-// let donehide = document.querySelector("#done-btn");
 //function for reset the form
 
  function resetFormInput(){
@@ -143,14 +142,10 @@ if (event.target.classList.contains("done-button")){
   // // Update the task status to 'DONE'
   task.status = "Done";
   taskManager.save();
-  
-  // document.querySelector("#done-btn").style.display="none";
-// console.log(parentTask);
-  // Render the tasks
+   // Render the tasks
   taskManager.render();
 
-  // document.querySelector("#done-btn").style.display="none";
-}
+  }
   // Delete button
   if(event.target.classList.contains('delete-button')) {
     const parentTask = 
@@ -161,9 +156,4 @@ if (event.target.classList.contains("done-button")){
     taskManager.render();
     }
 });
-
-// donehide.addEventListener(click,displayhide);
-// function displayhide(){
-// donehide.style.display="none";
-// }
 

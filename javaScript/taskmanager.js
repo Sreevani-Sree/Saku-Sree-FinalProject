@@ -53,8 +53,7 @@ class TaskManager {
       const task = this.tasks[i];
       // Format the date
       const date = new Date(task.dueDate);
-      const formattedDate =
-        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+      const formattedDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
       // Create the task html
       const taskHtml = createTaskHtml(
         task.id,
@@ -122,16 +121,17 @@ class TaskManager {
     // copying Hardcoded card from Index.html
     
     let todayDate = new Date();
-    let formatDate = (todayDate.getDate() +  "/" +(todayDate.getMonth()+1 )+ "/" + todayDate.getFullYear());
-    
-      const html = `<div class="col-auto" data-task-id="${id}">
+    let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
+    let d1 = dueDate;
+    console.log("date"+ d1<formatDate);
+          const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
                <div class="card" style="width: 16rem;">
                <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status:<span class="${(dueDate < formatDate && status !== "Done") ? "text-danger" : "text-success"} " > ${status}</span></p>
+              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-danger" : "text-info"} " > ${status}</span></p>
                <p class="card-text">Due Date: ${dueDate}</p>
                <p class="card-text">Today Date: ${formatDate}</p>
           <div class="card-body text-center">
@@ -146,4 +146,4 @@ class TaskManager {
   return html;
   }
 
-  // btn btn-outline-success 
+  
