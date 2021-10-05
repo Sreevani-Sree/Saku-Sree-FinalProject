@@ -23,7 +23,7 @@ class TaskManager {
   
       this.tasks.push(task);
       document.getElementById("reset-form").reset();
-      alert("The Task is added");
+      // console.log(this.tasks);
             
     }
     // get task method
@@ -126,7 +126,7 @@ class TaskManager {
     console.log("date"+ d1<formatDate);
           const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
-               <div class="card" style="width: 16rem;">
+               <div class="card" style="width: 18rem;">
                <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>

@@ -41,11 +41,17 @@ ctask.addEventListener("click",resetFormInput);
 
  }
 // function for validating all the form fields
-function validateBox() {
+const validateBox = (event) =>{
    
  let valFail = 0;
+ 
+  // Prevent default action
+  event.preventDefault();
+
+
   // validation for NameInput
-  if (validateName.value === "" || validateName.value.trim().length < 5) {
+  
+  if (validateName.value === "" || validateName.value.trim().length < 4) {
     console.log(validateName.value.length);
     errMsg1.innerHTML = "Please enter valid name";
     errMsg1.style.color = "#ff0000";
