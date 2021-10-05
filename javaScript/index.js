@@ -22,7 +22,7 @@ let errMsg5 = document.querySelector("#errMsg5");
 
 //  date format
   var today = new Date().toISOString().split('T')[0];
-   var today = new Date();
+  //  var today = new Date();
  //console.log("today" + today);
 validateDueDate.setAttribute('min', today);
  
@@ -41,7 +41,7 @@ ctask.addEventListener("click",resetFormInput);
 
  }
 // function for validating all the form fields
-const validateBox = (event) =>{
+function validateBox(event){
    
  let valFail = 0;
  

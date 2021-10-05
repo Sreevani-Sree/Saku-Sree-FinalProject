@@ -23,7 +23,7 @@ class TaskManager {
   
       this.tasks.push(task);
       document.getElementById("reset-form").reset();
-      // console.log(this.tasks);
+       console.log(this.tasks);
             
     }
     // get task method
@@ -120,10 +120,10 @@ class TaskManager {
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
     
-    let todayDate = new Date();
-    let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
-    let d1 = dueDate;
-    console.log("date"+ d1<formatDate);
+    // let todayDate = new Date();
+    // let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
+    // let d1 = dueDate;
+    // console.log("date"+ d1<formatDate);
           const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
                <div class="card" style="width: 18rem;">
