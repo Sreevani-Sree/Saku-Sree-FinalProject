@@ -120,13 +120,13 @@ class TaskManager {
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
     
-    // let todayDate = new Date();
-    // let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
-    // let d1 = dueDate;
+     let todayDate = new Date();
+     let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
+     let d1 = dueDate;
     // console.log("date"+ d1<formatDate);
           const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
-               <div class="card ${ status === "Done" ? "bg-success " : status === "In-Progress" ? "bg-warning" :status === "Review" ? "bg-info" : "bg-danger" }" style="width: 18rem;">
+               <div class="card ${status === "Done" ? "bg-success text-dark" : d1 < dueDate ? "bg-danger" :status === "In-Progress" ? "bg-warning text-dark" :status === "Review" ? "bg-info text-dark" : "bg-danger text-white" }" style="width: 18rem;">
                <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
@@ -135,7 +135,7 @@ class TaskManager {
                <p class="card-text">Due Date: ${dueDate}</p>
                <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
-          
+           
           <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" class="delete-button">
           </div>
        </div>
