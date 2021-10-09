@@ -126,12 +126,12 @@ class TaskManager {
     // console.log("date"+ d1<formatDate);
           const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
-               <div class="card" style="width: 18rem;">
+               <div class="card ${ status === "Done" ? "bg-success " : status === "In-Progress" ? "bg-warning" :status === "Review" ? "bg-info" : "bg-danger" }" style="width: 18rem;">
                <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status:<span class="${ status === "Done" ? "text-success " : status === "In-Progress" ? "text-warning" :status === "Review" ? "text-info" : "text-danger" } " > ${status}</span></p>
+              <p class="card-text">Status:${status}</p>
                <p class="card-text">Due Date: ${dueDate}</p>
                <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
