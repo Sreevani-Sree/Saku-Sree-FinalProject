@@ -12,7 +12,10 @@ const taskManager = new TaskManager(0);
   let validateDueDate = document.querySelector("#dueDate");
 
 let btnSub2 = document.querySelector("#submit"); 
+let editBtn = document.querySelector("#edit-btn"); 
 let ctask = document.querySelector("#ctask");
+const formModal = new bootstrap.Modal(document.getElementById("task-form"), {});
+
 
 let errMsg1 = document.querySelector("#errMsg1");
 let errMsg2 = document.querySelector("#errMsg2");
@@ -22,9 +25,7 @@ let errMsg5 = document.querySelector("#errMsg5");
 
 //  date format
   var today = new Date().toISOString().split('T')[0];
-  //  var today = new Date();
- //console.log("today" + today);
-validateDueDate.setAttribute('min', today);
+  validateDueDate.setAttribute('min', today);
  
 // document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
  btnSub2.addEventListener("click", validateBox);
@@ -134,7 +135,7 @@ console.log(validateStatus.value);
 taskList.addEventListener("click", (event) => {
 // Check if a "Mark As Done" button was clicked
 if (event.target.classList.contains("done-button")){
-  // Get the correct parent Task, yours might be slightly different
+  // Get the correct parent Task
   console.log(event.target.parentElement) ;
   const parentTask =
     event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
@@ -152,6 +153,16 @@ if (event.target.classList.contains("done-button")){
   taskManager.render();
 
   }
+  
+// if(event.target.classList.contains('edit-button')) {
+//   const parentTask = 
+//   event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+//   const taskId = Number(parentTask.dataset.taskId);
+//   taskManager.editTask(taskId);
+//   taskManager.save();
+//   taskManager.render();
+//   }
+
   // Delete button
   if(event.target.classList.contains('delete-button')) {
     const parentTask = 
@@ -162,4 +173,5 @@ if (event.target.classList.contains("done-button")){
     taskManager.render();
     }
 });
+
 

@@ -102,8 +102,21 @@ class TaskManager {
       this.currentId = Number(currentId);
     }
   }
+  
+    // editTask(targetId, title, desc, assign, status, dueDate) {
+    //   this.tasks.forEach((task) => {
+    //     if (targetId === task.currentId) {
+    //       task.title = title;
+    //       task.desc = desc;
+    //       task.assign = assign;
+    //       task.dueDate = dueDate;
+    //       task.status = status;
+    //     }
+    //   });
+  
+  
 
-    //task 10
+    //delete the task
     deleteTask(taskId) {
       const newTasks = [];
       for(let i = 0; i < this.tasks.length; i++) {
@@ -135,7 +148,7 @@ class TaskManager {
                <p class="card-text">Due Date: ${dueDate}</p>
                <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
-           
+           <img src="./images/Edit.jpeg" alt="edit" width="28" height="24" id="edit-btn" class="edit-button">
           <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" class="delete-button">
           </div>
        </div>
