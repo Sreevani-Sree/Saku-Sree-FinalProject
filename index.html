@@ -17,7 +17,7 @@
    -->
   </head>
   
-  <body>
+  <body id="backdrop">
     <!-- Navbar start -->
     <nav class="navbar" id="navbar">
       <div class="container-fluid" >
@@ -78,7 +78,7 @@
                   <select class="form-select" id="status" aria-label=".form-select-sm example">
                     <!-- <option selected>Status </option> -->
                     <option value="Select">Select</option>
-                    <option value="TODO">To Do</option>
+                    <option value="To-Do">To Do</option>
                     <option value="In-Progress">In Progress</option>
                     <option value="Review">Review</option>
                     <option value="Done">Done</option>
@@ -144,15 +144,14 @@
 <script src="./javaScript/taskmanager.js"></script>
 <script src="./javaScript/index.js"></script>
 
-<!-- <script type="text/javascript">
-   
-  $('.datepicker').datepicker({ 
-      startDate: new Date()
-  }); -->
 
-<!-- </script> -->
-<section class="top fixed-bottom">
-  <img src="./images/yellowarrow.jpeg" href="#top" alt="backtotop" width="28" height="24" id="top-btn" class="top-button">
+<section class="top fixed">
+  <img src="./images/Toparrow.jpeg" alt="backtotop" width="28" height="24" id="top-btn" data-toggle="tooltip" title="ScrolltoTop"  onclick="scrollToTop()">
+  <script>
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+</script>
 </section>
 <br>
 <section>

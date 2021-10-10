@@ -53,7 +53,7 @@ function validateBox(event){
   
   if (validateName.value === "" || validateName.value.trim().length < 4) {
     console.log(validateName.value.length);
-    errMsg1.innerHTML = "Please enter valid name";
+    errMsg1.innerHTML = "Please enter min 5 characters";
     errMsg1.style.color = "#ff0000";
     valFail += 1;
     console.log("valFail");
@@ -67,7 +67,7 @@ function validateBox(event){
   
   if (validateDescription.value === "" || validateDescription.value.trim().length < 5) {
     console.log(validateDescription.value.length);
-    errMsg2.innerHTML = "Please enter valid description";
+    errMsg2.innerHTML = "Please enter min 5 characters";
     errMsg2.style.color = "#ff0000";
     valFail += 1;
     validateDescription.focus();
@@ -78,7 +78,7 @@ function validateBox(event){
 // validate assignedto
 if (validateAssignedTo.value === "" || validateAssignedTo.value.trim().length < 4) {
   console.log(validateAssignedTo.value.length);
-  errMsg3.innerHTML = "Please enter assignee name";
+  errMsg3.innerHTML = "Please enter min 4 characters";
   errMsg3.style.color = "#ff0000";
   valFail += 1;
   validateAssignedTo.focus();
