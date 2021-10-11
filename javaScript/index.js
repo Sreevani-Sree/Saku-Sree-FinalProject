@@ -14,7 +14,7 @@ const taskManager = new TaskManager(0);
 let btnSub2 = document.querySelector("#submit"); 
 let editBtn = document.querySelector("#edit-btn"); 
 let ctask = document.querySelector("#ctask");
-const formModal = new bootstrap.Modal(document.getElementById("task-form"), {});
+// const formModal = new bootstrap.Modal(document.getElementById("task-form"), {});
 
 
 let errMsg1 = document.querySelector("#errMsg1");

@@ -47,10 +47,12 @@ class TaskManager {
 
     render() {
       let taskHtmlList = [];
+      let sortTasks = filterTasks(this.tasks);
+      console.log(sortTasks);
       // Loop over our tasks and create the html, storing it in the array
-    for (let i = 0; i < this.tasks.length; i++) {
+    for (let i = 0; i < sortTasks.length; i++) {
       // Get the current task in the loop
-      const task = this.tasks[i];
+      const task = sortTasks[i];
       // Format the date
       const date = new Date(task.dueDate);
       const formattedDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
@@ -148,9 +150,10 @@ class TaskManager {
               <p class="card-text">Status:${status}</p>
                <p class="card-text">Due Date: ${dueDate}</p>
                <div class="card-body text-center">
-          <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" class="done-button ${status === "Done" ? "invisible" : "visible"}" >
+          <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" data-toggle="tooltip" title="Done"
+          class="done-button ${status === "Done" ? "invisible" : "visible"}" >
            <img src="./images/Edit.jpeg" alt="edit" width="28" height="24" id="edit-btn" class="edit-button">
-          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" class="delete-button">
+          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
           </div>
        </div>
     </div>
@@ -159,4 +162,32 @@ class TaskManager {
   return html;
   }
 
-  
+  function filterTasks(task){
+    alert("tasks are sorted");
+    console.log(task);
+    const todoTasks = [];
+    const progressTasks = [];
+    const reviewTasks = [];
+    const doneTasks = [];
+    for(let i=0; i<task.length;i++)
+    {
+      const newTask = task[i];
+      console.log(newTask.status);
+        if(newTask.status === "ToDo") {
+          todoTasks.push(newTask);
+          } else if(newTask.status === "In-Progress") {
+             progressTasks.push(newTask);
+               }else if(newTask.status === "Review") {
+                reviewTasks.push(newTask);
+               } else {
+                  doneTasks.push(newTask);
+                }
+
+   }
+     const newSortedTasks = doneTasks.concat(todoTasks,progressTasks,reviewTasks);
+     
+    // console.log(todoTasks);
+     console.log(newSortedTasks);
+    return newSortedTasks;
+    // return todoTasks;
+  }
