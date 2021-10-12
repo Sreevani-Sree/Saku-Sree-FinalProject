@@ -153,7 +153,7 @@ class TaskManager {
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" data-toggle="tooltip" title="Done"
           class="done-button ${status === "Done" ? "invisible" : "visible"}" >
           
-          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
+          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="26" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
           </div>
        </div>
     </div>
