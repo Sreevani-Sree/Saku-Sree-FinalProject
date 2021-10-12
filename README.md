@@ -26,5 +26,5 @@ Created by Saku and Sree
 ![Webpage image](./images/webpage.jpeg)
 
 # Git Hub Page
-[Git Hub Page](https://sreevani-sree.github.io/Saku-Sree-FinalProject/)
+[Task Planner Page](https://sreevani-sree.github.io/Saku-Sree-FinalProject/)
 
