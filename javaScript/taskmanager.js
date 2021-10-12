@@ -163,8 +163,8 @@ class TaskManager {
   }
 
   function filterTasks(task){
-    alert("tasks are sorted");
-    console.log(task);
+    // alert("tasks are sorted");
+    // console.log(task);
     const todoTasks = [];
     const progressTasks = [];
     const reviewTasks = [];
