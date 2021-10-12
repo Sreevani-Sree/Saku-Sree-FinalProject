@@ -6,7 +6,7 @@ Created by Saku and Sree
 * Create Task Planner to add, update and delete tasks.
 
 ### Wireframe
-![wireframe image](./images/Wireframe.jpeg)
+![wireframe image](./images/wireframe.jpeg)
 
 
 ## Features
