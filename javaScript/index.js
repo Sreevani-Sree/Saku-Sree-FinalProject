@@ -23,7 +23,16 @@ let errMsg3 = document.querySelector("#errMsg3");
 let errMsg4 = document.querySelector("#errMsg4");
 let errMsg5 = document.querySelector("#errMsg5");
 
-//  date format
+​
+//edit Modal variable
+const edit_myName = document.querySelector('#edit_title');
+const edit_description= document.querySelector('#edit_description');
+const edit_assign = document.querySelector('#edit_assigned_to');
+const edit_status = document.querySelector('#edit_status');
+const edit_date = document.querySelector('#edit_dueDate');
+const Update = document.querySelector('#edit_update');
+ 
+//  date formatu
   var today = new Date().toISOString().split('T')[0];
   validateDueDate.setAttribute('min', today);
  
@@ -172,6 +181,20 @@ if (event.target.classList.contains("done-button")){
     taskManager.save();
     taskManager.render();
     }
+    // Edit button
+    if(event.target.classList.contains("edit-button")){
+      const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+      taskManager.editTask(taskId);
+      let task = taskManager.getTaskById(taskId);
+   //Update button
+   Update.addEventListener('click', editValidFormFieldInput);
+     
+    }
+    taskManager.save();
+    taskManager.render();
+​
 });
 
 
