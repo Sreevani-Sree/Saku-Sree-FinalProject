@@ -14,7 +14,6 @@ const taskManager = new TaskManager(0);
 let btnSub2 = document.querySelector("#submit"); 
 let editBtn = document.querySelector("#edit-btn"); 
 let ctask = document.querySelector("#ctask");
-// const formModal = new bootstrap.Modal(document.getElementById("task-form"), {});
 
 
 let errMsg1 = document.querySelector("#errMsg1");
@@ -23,20 +22,26 @@ let errMsg3 = document.querySelector("#errMsg3");
 let errMsg4 = document.querySelector("#errMsg4");
 let errMsg5 = document.querySelector("#errMsg5");
 
-​
 //edit Modal variable
 const edit_myName = document.querySelector('#edit_title');
 const edit_description= document.querySelector('#edit_description');
-const edit_assign = document.querySelector('#edit_assigned_to');
+const edit_assign = document.querySelector('#edit_assignedto');
 const edit_status = document.querySelector('#edit_status');
 const edit_date = document.querySelector('#edit_dueDate');
-const Update = document.querySelector('#edit_update');
+const update = document.querySelector('#edit_update');
+
+let edit_errMsg1 = document.querySelector("#edit_errMsg1");
+let edit_errMsg2 = document.querySelector("#edit_errMsg2");
+let edit_errMsg3 = document.querySelector("#edit_errMsg3");
+let edit_errMsg4 = document.querySelector("#edit_errMsg4");
+let edit_errMsg5 = document.querySelector("#edit_errMsg5");
+
+
  
-//  date formatu
+//  date format
   var today = new Date().toISOString().split('T')[0];
   validateDueDate.setAttribute('min', today);
  
-// document.getElementById("dueDate").min = new Date().getFullYear() + "-" + parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate
  btnSub2.addEventListener("click", validateBox);
 ctask.addEventListener("click",resetFormInput);
 //function for reset the form
@@ -51,90 +56,171 @@ ctask.addEventListener("click",resetFormInput);
 
  }
 // function for validating all the form fields
-function validateBox(event){
-   
+function editvalidateBox(event){
+   alert("its running");
  let valFail = 0;
  
   // Prevent default action
-  event.preventDefault();
+  // event.preventDefault();
 
 
   // validation for NameInput
   
-  if (validateName.value === "" || validateName.value.trim().length < 4) {
+  if (edit_myName.value === "" || edit_myName.value.trim().length < 4) {
     console.log(validateName.value.length);
-    errMsg1.innerHTML = "Please enter min 5 characters";
-    errMsg1.style.color = "#ff0000";
+    edit_errMsg1.innerHTML = "Please enter min 5 characters";
+    edit_errMsg1.style.color = "#ff0000";
     valFail += 1;
     console.log("valFail");
-    validateName.focus();
+    edit_myName.focus();
   } else {
-    errMsg1.innerHTML = "";
-    validateName.focus();
+    edit_errMsg1.innerHTML = "";
+    edit_myName.focus();
 
   }
   // validation for description
   
-  if (validateDescription.value === "" || validateDescription.value.trim().length < 5) {
-    console.log(validateDescription.value.length);
-    errMsg2.innerHTML = "Please enter min 5 characters";
-    errMsg2.style.color = "#ff0000";
+  if (edit_description.value === "" || edit_description.value.trim().length < 5) {
+    console.log(edit_description.value.length);
+    edit_errMsg2.innerHTML = "Please enter min 5 characters";
+    edit_errMsg2.style.color = "#ff0000";
     valFail += 1;
-    validateDescription.focus();
+    edit_description.focus();
     } else {
-    errMsg2.innerHTML = "";
-    validateDescription.focus();
+    edit_errMsg2.innerHTML = "";
+    edit_description.focus();
   }
 // validate assignedto
-if (validateAssignedTo.value === "" || validateAssignedTo.value.trim().length < 4) {
-  console.log(validateAssignedTo.value.length);
-  errMsg3.innerHTML = "Please enter min 4 characters";
-  errMsg3.style.color = "#ff0000";
+if (edit_assign.value === "" || edit_assign.value.trim().length < 4) {
+  console.log(edit_assign.value.length);
+  edit_errMsg3.innerHTML = "Please enter min 4 characters";
+  edit_errMsg3.style.color = "#ff0000";
   valFail += 1;
-  validateAssignedTo.focus();
+  edit_assign.focus();
   } else {
-  errMsg3.innerHTML = "";
-  validateAssignedTo.focus();
+  edit_errMsg3.innerHTML = "";
+  edit_assign.focus();
 }
 
 // Validate Status
-if(validateStatus.value === "Select"){
+if(edit_status.value === "Select"){
 console.log(validateStatus.value);
-  errMsg4.innerHTML ="Choose the status";
-  errMsg4.style.color = "#ff0000";
+  edit_errMsg4.innerHTML ="Choose the status";
+  edit_errMsg4.style.color = "#ff0000";
   valFail += 1;
-  validateStatus.focus();
+  edit_status.focus();
   } else {
-  errMsg4.innerHTML = "";
-  validateStatus.focus();
+  edit_errMsg4.innerHTML = "";
+  edit_status.focus();
 }
 
   // validate date
-  if(!validateDueDate.value){
+  if(!edit_date.value){
     console.log(validateDueDate.value);
-      errMsg5.innerHTML ="Choose the date";
-      errMsg5.style.color = "#ff0000";
+      edit_errMsg5.innerHTML ="Choose the date";
+      edit_errMsg5.style.color = "#ff0000";
       valFail += 1;
-      validateDueDate.focus();
+      edit_date.focus();
       } else {
-      errMsg5.innerHTML = "";
-      validateDueDate.focus();
+      edit_errMsg5.innerHTML = "";
+      edit_date.focus();
     }
 
     if (valFail >0) {
       valFail=0;
       return;
     } else {
-    taskManager.addTask(validateName.value,validateDescription.value,validateAssignedTo.value,validateStatus.value,validateDueDate.value);
+    taskManager.updateTask(edit_myName.value,edit_description.value,edit_assign.value,edit_status.value,edit_date.value,edit_taskId.value);
     console.log(taskManager.tasks)
     taskManager.save();
     taskManager.render();
+    $("#edit_Modal").modal("hide");
   }
   return;
-};
-
-
-
+}
+// function for validate input fields
+function validateBox(event){
+   
+  let valFail = 0;
+  
+   // Prevent default action
+   event.preventDefault();
+ 
+ 
+   // validation for NameInput
+   
+   if (validateName.value === "" || validateName.value.trim().length < 4) {
+     console.log(validateName.value.length);
+     errMsg1.innerHTML = "Please enter min 5 characters";
+     errMsg1.style.color = "#ff0000";
+     valFail += 1;
+     console.log("valFail");
+     validateName.focus();
+   } else {
+     errMsg1.innerHTML = "";
+     validateName.focus();
+ 
+   }
+   // validation for description
+   
+   if (validateDescription.value === "" || validateDescription.value.trim().length < 5) {
+     console.log(validateDescription.value.length);
+     errMsg2.innerHTML = "Please enter min 5 characters";
+     errMsg2.style.color = "#ff0000";
+     valFail += 1;
+     validateDescription.focus();
+     } else {
+     errMsg2.innerHTML = "";
+     validateDescription.focus();
+   }
+ // validate assignedto
+ if (validateAssignedTo.value === "" || validateAssignedTo.value.trim().length < 4) {
+   console.log(validateAssignedTo.value.length);
+   errMsg3.innerHTML = "Please enter min 4 characters";
+   errMsg3.style.color = "#ff0000";
+   valFail += 1;
+   validateAssignedTo.focus();
+   } else {
+   errMsg3.innerHTML = "";
+   validateAssignedTo.focus();
+ }
+ 
+ // Validate Status
+ if(validateStatus.value === "Select"){
+ console.log(validateStatus.value);
+   errMsg4.innerHTML ="Choose the status";
+   errMsg4.style.color = "#ff0000";
+   valFail += 1;
+   validateStatus.focus();
+   } else {
+   errMsg4.innerHTML = "";
+   validateStatus.focus();
+ }
+ 
+   // validate date
+   if(!validateDueDate.value){
+     console.log(validateDueDate.value);
+       errMsg5.innerHTML ="Choose the date";
+       errMsg5.style.color = "#ff0000";
+       valFail += 1;
+       validateDueDate.focus();
+       } else {
+       errMsg5.innerHTML = "";
+       validateDueDate.focus();
+     }
+ 
+     if (valFail >0) {
+       valFail=0;
+       return;
+     } else {
+     taskManager.addTask(validateName.value,validateDescription.value,validateAssignedTo.value,validateStatus.value,validateDueDate.value);
+     console.log(taskManager.tasks);
+     taskManager.save();
+     taskManager.render();
+   }
+   return;
+ }
+ 
 // Create a taskHtml variable with the result of calling the createTaskHtml function, making sure to pass a value for each parameter.
 // console.log() the taskHTML variable
 
@@ -162,18 +248,8 @@ if (event.target.classList.contains("done-button")){
   taskManager.render();
 
   }
-  
-// if(event.target.classList.contains('edit-button')) {
-//   const parentTask = 
-//   event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-//   const taskId = Number(parentTask.dataset.taskId);
-//   taskManager.editTask(taskId);
-//   taskManager.save();
-//   taskManager.render();
-//   }
-
   // Delete button
-  if(event.target.classList.contains('delete-button')) {
+   if(event.target.classList.contains('delete-button')) {
     const parentTask = 
     event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
     const taskId = Number(parentTask.dataset.taskId);
@@ -182,19 +258,40 @@ if (event.target.classList.contains("done-button")){
     taskManager.render();
     }
     // Edit button
-    if(event.target.classList.contains("edit-button")){
-      const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement;
-      const taskId = Number(parentTask.dataset.taskId);
-      taskManager.editTask(taskId);
-      let task = taskManager.getTaskById(taskId);
-   //Update button
-   Update.addEventListener('click', editValidFormFieldInput);
-     
-    }
-    taskManager.save();
-    taskManager.render();
-​
-});
-
-
+        if(event.target.classList.contains("edit-button")){
+          const parentTask =
+          event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+           
+          const taskId= Number(parentTask.dataset.taskId);
+          let task = taskManager.getTaskById(taskId);
+          // const taskId = Number(parentTask.dataset.taskId);
+          // taskManager.editTask(taskId);
+          $('#edit_Modal').modal('show');
+       
+          const edit_myName = document.querySelector("#edit_title");
+          const edit_taskId = document.querySelector("#edit_taskId"); 
+          const edit_description = document.querySelector("#edit_description");
+          const edit_assignedto = document.querySelector("#edit_assignedto");
+          const edit_status = document.querySelector("#edit_status");
+          const edit_dueDate = document.querySelector("#edit_dueDate");
+          // for(let i=0; i< this.tasks.length; i++){
+              // const task = this.tasks[i];
+                    // if(task.id == taskId){
+                  edit_taskId.value = taskId;
+                  edit_myName.value = task.name;
+                  edit_description.value =task.description
+                  edit_assignedto.value = task.assignedTo;
+                  edit_status.value = task.status;
+                  edit_dueDate.value = task.dueDate;
+                  // }
+              //  }
+      //  
+           
+       //Update button
+       update.addEventListener('click',editvalidateBox);
+          //  update.addEventListener('click', editvalidateBox());
+                  taskManager.save();
+                  taskManager.render();
+    
+      }
+    });
