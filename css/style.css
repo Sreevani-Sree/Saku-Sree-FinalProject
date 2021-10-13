@@ -6,7 +6,7 @@
     
 }
 #nav{
-    color: Black;
+    color: White;
     font-weight: bold;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-display:initial;
@@ -54,4 +54,15 @@
     padding-right: 20px;
     
 }
+
+#footer {
+    width: 100%;
+    background-color: rgb(4,186,210);
+    position: fixed;
+    bottom: 0px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ }
 

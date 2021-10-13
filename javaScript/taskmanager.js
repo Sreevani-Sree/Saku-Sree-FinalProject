@@ -188,8 +188,8 @@ class TaskManager {
                <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" data-toggle="tooltip" title="Done"
           class="done-button ${status === "Done" ? "invisible" : "visible"}" >
-           <img src="./images/Edit.jpeg" alt="edit" width="28" height="24" id="edit-btn" class="edit-button">
-          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="24" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
+          
+          <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="26" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
           </div>
        </div>
     </div>
@@ -197,7 +197,7 @@ class TaskManager {
     </div>`
   return html;
   }
-
+// <img src="./images/Edit.jpeg" alt="edit" width="28" height="24" id="edit-btn" class="edit-button">
   function filterTasks(task){
     // alert("tasks are sorted");
     // console.log(task);
