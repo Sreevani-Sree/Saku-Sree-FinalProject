@@ -140,32 +140,30 @@ class TaskManager {
       this.tasks = newTasks;
     }
     // edit the task
-    editTask(taskId) {
-      console.log(`edit task ID`+taskId);
-      // let mymodal = document.querySelector("#edit_Modal");
+    // editTask(taskId) {
+    //   console.log(`edit task ID`+taskId);
+    //   // let mymodal = document.querySelector("#edit_Modal");
       // mymodal.modal('show');
-       $('#edit_Modal').modal('show');
+      //  $('#edit_Modal').modal('show');
        
-      const edit_myName = document.querySelector("#edit_title");
-      const edit_taskId = document.querySelecor("#edit_taskId"); 
-      const edit_description = document.querySelector("#edit_description");
-      const edit_assignedto = document.querySelecor("#edit_assignedto");
-      const edit_status = document.querySelector("#edit_status");
-      const edit_dueDate = document.querySelector("#edit_dueDate");
-      for(let i=0; i< this.tasks.length; i++){
-          const task = this.tasks[i];
-                if(task.id == taskId){
-              edit_taskId.value = taskId;
-              edit_myName.value = task.name;
-              edit_description.value =task.description
-              edit_assignedto.value = task.assignedTo;
-              edit_status.value = task.status;
-              edit_dueDate.value = task.dueDate;
-              }
-           }
-  //        // return task;            
-
-   }
+      // const edit_myName = document.querySelector("#edit_title");
+      // const edit_taskId = document.querySelecor("#edit_taskId"); 
+      // const edit_description = document.querySelector("#edit_description");
+      // const edit_assignedto = document.querySelecor("#edit_assignedto");
+      // const edit_status = document.querySelector("#edit_status");
+      // const edit_dueDate = document.querySelector("#edit_dueDate");
+      // for(let i=0; i< this.tasks.length; i++){
+      //     const task = this.tasks[i];
+      //           if(task.id == taskId){
+      //         edit_taskId.value = taskId;
+      //         edit_myName.value = task.name;
+      //         edit_description.value =task.description
+      //         edit_assignedto.value = task.assignedTo;
+      //         edit_status.value = task.status;
+      //         edit_dueDate.value = task.dueDate;
+      //         }
+      //      }
+        //  }
 }
 // create html function
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
@@ -178,19 +176,19 @@ class TaskManager {
     // console.log("date"+ d1<formatDate);
           const html = `<div class="col-auto" data-task-id="${id}">
                <div class="p-2 bd-highlight">
-              <div class="card ${status === "Done" ? "border-success text-dark" : d1 < dueDate ? "border-danger" :status === "In-Progress" ? "border-warning text-dark" :status === "Review" ? "border-info text-dark" : "border-danger text-dark" }" style="width: 18rem;">
-               <div class="card-body">
+              <div class="card ${status === "Done" ? "border-success text-success" : status === "In-Progress" ? "border-warning text-warning" :status === "Review" ? "border-info text-info" : "border-danger text-danger" }" style="width: 18rem;">
+             <div class="card-body">
                <h5 class="card-title">Task Name: ${title}</h5>
                <p class="description text-start">Description: ${description}</p>
                <p class="card-text">Assigned to: ${assignedTo}</p>
-              <p class="card-text">Status:${status}</p>
+               <p class="card-text">Status:${status}</p>
                <p class="card-text">Due Date: ${dueDate}</p>
                <div class="card-body text-center">
           <img src="./images/Donetick.jpeg" alt="done" width="30" height="26" id="done-btn" data-toggle="tooltip" title="Done"
           class="done-button ${status === "Done" ? "invisible" : "visible"}" >
           <img src="./images/Edit.jpeg" alt="edit" width="28" height="24" id="edit-btn" class="edit-button">
           <img src="./images/deleteredicon.jpeg" alt="delete" width="28" height="26" id="delete-btn" data-toggle="tooltip" title="Delete" class="delete-button">
-          </div>
+         </div>
        </div>
     </div>
     </div> 
@@ -207,10 +205,10 @@ class TaskManager {
     const doneTasks = [];
     for(let i=0; i<task.length; i++){
           const newTask = task[i];
-      console.log(newTask.status);
-        if(newTask.status === "ToDo") {
-          todoTasks.push(newTask);
-          } else if(newTask.status === "In-Progress") {
+          console.log(newTask.status);
+          if(newTask.status === "To-Do") {
+           todoTasks.push(newTask);
+           } else if(newTask.status === "In-Progress") {
              progressTasks.push(newTask);
                }else if(newTask.status === "Review") {
                 reviewTasks.push(newTask);
@@ -219,7 +217,8 @@ class TaskManager {
                 }
 
    }
-     const newSortedTasks = doneTasks.concat(todoTasks,progressTasks,reviewTasks);
+  //  console.log(doneTasks );
+     const newSortedTasks = todoTasks.concat(progressTasks,reviewTasks,doneTasks);
      
      console.log(newSortedTasks);
     return newSortedTasks;

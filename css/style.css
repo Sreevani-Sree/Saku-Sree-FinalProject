@@ -19,7 +19,29 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
 }
+#edit_title{
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+#edit_description{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px; 
+}
+#edit-status{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+#edit_review{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
 
+}
+
+#edit_assignedto{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
 #ctask {
     /* background-color: rgb(30, 167, 194); */
     margin: 20px;
@@ -48,6 +70,13 @@
     font-family: serif;
     font-size: 18px;
    }
+   #edit_taskform{
+    background-color: rgb(158,191,240);
+    border-color: midnightblue;
+    font-family: serif;
+    font-size: 18px;
+
+   }
 
    .top{
     text-align:right;
@@ -66,3 +95,9 @@
     text-align: center;
  }
 
+ #edit_update{
+     /* display : none; */
+ }
+ #edit_reset{
+    display : none;
+ }
