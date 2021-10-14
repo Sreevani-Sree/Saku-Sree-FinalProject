@@ -4,16 +4,16 @@ const taskManager = new TaskManager(0);
   taskManager.load();
   taskManager.render();
 
- let  resetForm = document.querySelector("#reset-form");
+  let  resetForm = document.querySelector("#reset-form");
   let validateName = document.getElementById('title');
   let validateDescription = document.querySelector("#description");
   let validateAssignedTo = document.querySelector("#assignedto");
   let validateStatus = document.querySelector("#status");
   let validateDueDate = document.querySelector("#dueDate");
 
-let btnSub2 = document.querySelector("#submit"); 
-let editBtn = document.querySelector("#edit-btn"); 
-let ctask = document.querySelector("#ctask");
+  let btnSub2 = document.querySelector("#submit"); 
+  let editBtn = document.querySelector("#edit-btn"); 
+  let ctask = document.querySelector("#ctask");
 
 
 let errMsg1 = document.querySelector("#errMsg1");
@@ -57,7 +57,7 @@ ctask.addEventListener("click",resetFormInput);
  }
 // function for validating all the form fields
 function editvalidateBox(event){
-   alert("its running");
+  //  alert("its running");
  let valFail = 0;
  
   // Prevent default action
@@ -215,6 +215,13 @@ function validateBox(event){
      } else {
      taskManager.addTask(validateName.value,validateDescription.value,validateAssignedTo.value,validateStatus.value,validateDueDate.value);
      console.log(taskManager.tasks);
+    //  var myModal = new bootstrap.Modal(document.getElementById('edit_Modal'),{
+    //   keyboard: false
+    // })
+    
+    
+    // myModal.hide();
+
      taskManager.save();
      taskManager.render();
    }
@@ -266,7 +273,14 @@ if (event.target.classList.contains("done-button")){
           let task = taskManager.getTaskById(taskId);
           // const taskId = Number(parentTask.dataset.taskId);
           // taskManager.editTask(taskId);
-          $('#edit_Modal').modal('show');
+          var myModal = new bootstrap.Modal(document.getElementById('edit_Modal'),{
+            keyboard: false
+          })
+          
+          
+          myModal.show();
+          // let reset1 = document.querySelector("edit_reset");
+          // reset1.style.display = 'none';
        
           const edit_myName = document.querySelector("#edit_title");
           const edit_taskId = document.querySelector("#edit_taskId"); 
@@ -292,6 +306,7 @@ if (event.target.classList.contains("done-button")){
           //  update.addEventListener('click', editvalidateBox());
                   taskManager.save();
                   taskManager.render();
+                  myModal.hide();
     
       }
     });

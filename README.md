@@ -13,6 +13,7 @@ Created by Saku and Sree
 - Add Task
 - Display Task
 - Update Status
+- Edit Task
 - Delete Task
 
 ## Technologies Used
@@ -21,6 +22,7 @@ Created by Saku and Sree
 - JavaScript
 - Bootstrap
 - Git and GitHub
+- Chrome Dev Tools
 
 ## Final Output
 ![Webpage image](./images/webpage.jpeg)
