@@ -135,37 +135,13 @@ class TaskManager {
       }
       this.tasks = newTasks;
     }
-    // edit the task
-    // editTask(taskId) {
-    //   console.log(`edit task ID`+taskId);
-    //   // let mymodal = document.querySelector("#edit_Modal");
-      // mymodal.modal('show');
-      //  $('#edit_Modal').modal('show');
-       
-      // const edit_myName = document.querySelector("#edit_title");
-      // const edit_taskId = document.querySelecor("#edit_taskId"); 
-      // const edit_description = document.querySelector("#edit_description");
-      // const edit_assignedto = document.querySelecor("#edit_assignedto");
-      // const edit_status = document.querySelector("#edit_status");
-      // const edit_dueDate = document.querySelector("#edit_dueDate");
-      // for(let i=0; i< this.tasks.length; i++){
-      //     const task = this.tasks[i];
-      //           if(task.id == taskId){
-      //         edit_taskId.value = taskId;
-      //         edit_myName.value = task.name;
-      //         edit_description.value =task.description
-      //         edit_assignedto.value = task.assignedTo;
-      //         edit_status.value = task.status;
-      //         edit_dueDate.value = task.dueDate;
-      //         }
-      //      }
-        //  }
+    
 }
 // create html function
   function createTaskHtml(id,title,description,assignedTo,status,dueDate) {
     // copying Hardcoded card from Index.html
     
-    // ${status === "Done" ? "bg-success text-dark" : d1 < dueDate ? "bg-danger" :status === "In-Progress" ? "bg-warning text-dark" :status === "Review" ? "bg-info text-dark" : "bg-danger text-white" }
+    
      let todayDate = new Date();
      let formatDate = todayDate.getDate() +  "-" +(todayDate.getMonth()+1 )+ "-" + todayDate.getFullYear();
      let d1 = dueDate;

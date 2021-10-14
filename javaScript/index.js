@@ -306,9 +306,10 @@ if (event.target.classList.contains("done-button")){
           //  update.addEventListener('click', editvalidateBox());
                   taskManager.save();
                   taskManager.render();
-                  myModal.hide();
+                  myModal.hide(); 
     
       }
+      
     });
 
     
